@@ -38,27 +38,27 @@ text-align:right;
 		<td onclick="printOnScreen(7)">7</td>
 		<td onclick="printOnScreen(8)">8</td>
 		<td onclick="printOnScreen(9)">9</td>
-		<td>/</td>
+		<td onclick="passOperand('divide')">/</td>
 		<td>%</td>
 	</tr>
 		<tr>
 		<td onclick="printOnScreen(4)">4</td>
 		<td onclick="printOnScreen(5)">5</td>
 		<td onclick="printOnScreen(6)">6</td>
-		<td>*</td>
+		<td onclick="passOperand('multiply')">*</td>
 		<td>1/x</td>
 	</tr>
 		<tr>
 		<td onclick="printOnScreen(1)">1</td>
 		<td onclick="printOnScreen(2)">2</td>
 		<td onclick="printOnScreen(3)">3</td>
-		<td>-</td>
-		<td rowspan=2>=</td>
+		<td onclick="passOperand('extract')">-</td>
+		<td onclick="getResult()" rowspan=2>=</td>
 	</tr>
 		<tr>
-		<td onclick="printOnScreen()" colspan=2>0</td>
+		<td onclick="printOnScreen(0)" colspan=2>0</td>
 		<td>.</td>
-		<td>+</td>
+		<td onclick="passOperand('add')">+</td>
 	</tr>
 </table>
 </div>
