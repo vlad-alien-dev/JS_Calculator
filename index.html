@@ -1,4 +1,5 @@
-﻿<style>
+﻿<script src="script.js"></script>
+<style>
 table, tr,td{
 border:1px solid gray;
 }
@@ -17,7 +18,7 @@ text-align:right;
 <div id="container">
 <table>
 	<tr>
-		<td  id="screen" colspan=5>0</td>		
+		<td id="screen" colspan=5>0</td>		
 	</tr>
 	<tr>
 		<td>MC</td>
@@ -34,28 +35,28 @@ text-align:right;
 		<td>SQRT</td>
 	</tr>
 		<tr>
-		<td>7</td>
-		<td>8</td>
-		<td>9</td>
+		<td onclick="printOnScreen(7)">7</td>
+		<td onclick="printOnScreen(8)">8</td>
+		<td onclick="printOnScreen(9)">9</td>
 		<td>/</td>
 		<td>%</td>
 	</tr>
 		<tr>
-		<td>4</td>
-		<td>5</td>
-		<td>6</td>
+		<td onclick="printOnScreen(4)">4</td>
+		<td onclick="printOnScreen(5)">5</td>
+		<td onclick="printOnScreen(6)">6</td>
 		<td>*</td>
 		<td>1/x</td>
 	</tr>
 		<tr>
-		<td>1</td>
-		<td>2</td>
-		<td>3</td>
+		<td onclick="printOnScreen(1)">1</td>
+		<td onclick="printOnScreen(2)">2</td>
+		<td onclick="printOnScreen(3)">3</td>
 		<td>-</td>
 		<td rowspan=2>=</td>
 	</tr>
 		<tr>
-		<td colspan=2>0</td>
+		<td onclick="printOnScreen()" colspan=2>0</td>
 		<td>.</td>
 		<td>+</td>
 	</tr>
