@@ -27,7 +27,6 @@ for (i = 0; i < digits.length; i++) {
 	(function(){
 		var id = i;
 		digits[i].addEventListener("click", function(){changeScreenValue(digits[id].innerText); }, false);	
-		digits[i].addEventListener("click", function(){addToLog(digits[id].innerText); }, false);
 	}())
 }
 
@@ -35,7 +34,6 @@ for (i = 0; i < operators.length; i++) {
 	(function(){
 		var id = i;
 		operators[i].addEventListener("click", function(){getOperator(operators[id].innerText); }, false);	
-		operators[i].addEventListener("click", function(){addToLog(operators[id].innerText); }, false);	
 	}())
 }
 
@@ -98,35 +96,4 @@ function getOperator(operator){
 }
 var resetScreen = function(){
 	changeScreenValue('reset');
-}
-Parse.initialize("Eb6W51QvPcyrUyuGHk6b3LjM1wZXnW3NOYhkLT4K", "TLXRT0s7foHmYJT7osc4moKjcFFrknpSElmvnSBL");
-var TestObject = Parse.Object.extend("TestObject");
-	var testObject = new TestObject();
-var addToLog = function(input){
-	//Parse.initialize("APPLICATION_ID", "JAVASCRIPT_KEY");
-
-
-	  testObject.save({operationType: input}, {
-	  success: function(object) {
-		$(".success").show();
-		showLog(object.id);
-	  },
-	  error: function(model, error) {
-		$(".error").show();
-	  }
-	});	
-}
-
-var showLog=function(objectId){	
-	var query = new Parse.Query(TestObject);
-	query.get(objectId, {
-	  success: function(testObject) {
-		//alert(testObject.attributes.operationType);
-		alert(testObject.createdAt);
-	  },
-	  error: function(testObject, error) {
-		// The object was not retrieved successfully.
-		// error is a Parse.Error with an error code and message.
-	  }
-	});
 }
