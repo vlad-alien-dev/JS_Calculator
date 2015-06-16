@@ -1,10 +1,11 @@
-﻿<script src="script.js"></script>
+﻿
 <style>
 table, tr,td{
 border:1px solid gray;
 }
 td{
 text-align:center;
+width:30px;
 }
 #container{
 width:300px;
@@ -20,14 +21,14 @@ text-align:right;
 	<tr>
 		<td id="screen" colspan=5>0</td>		
 	</tr>
-	<tr>
+	<tr style="display:none;">
 		<td>MC</td>
 		<td>MR</td>
 		<td>MS</td>
 		<td>M+</td>
 		<td>M-</td>
 	</tr>
-		<tr>
+	<tr style="display:none;">
 		<td><--</td>
 		<td>CE</td>
 		<td>C</td>
@@ -35,30 +36,31 @@ text-align:right;
 		<td>SQRT</td>
 	</tr>
 		<tr>
-		<td onclick="printOnScreen(7)">7</td>
-		<td onclick="printOnScreen(8)">8</td>
-		<td onclick="printOnScreen(9)">9</td>
-		<td onclick="passOperand('divide')">/</td>
+		<td id="b7" class="digitBtn">7</td>
+		<td id="b8" class="digitBtn">8</td>
+		<td id="b9" class="digitBtn">9</td>
+		<td id="bdivide" class="operatorBtn">/</td>
 		<td>%</td>
 	</tr>
 		<tr>
-		<td onclick="printOnScreen(4)">4</td>
-		<td onclick="printOnScreen(5)">5</td>
-		<td onclick="printOnScreen(6)">6</td>
-		<td onclick="passOperand('multiply')">*</td>
+		<td id="b4" class="digitBtn">4</td>
+		<td id="b5" class="digitBtn">5</td>
+		<td id="b6" class="digitBtn">6</td>
+		<td id="bmultiply" class="operatorBtn">*</td>
 		<td>1/x</td>
 	</tr>
 		<tr>
-		<td onclick="printOnScreen(1)">1</td>
-		<td onclick="printOnScreen(2)">2</td>
-		<td onclick="printOnScreen(3)">3</td>
-		<td onclick="passOperand('extract')">-</td>
-		<td onclick="getResult()" rowspan=2>=</td>
+		<td id="b1" class="digitBtn">1</td>
+		<td id="b2" class="digitBtn">2</td>
+		<td id="b3" class="digitBtn">3</td>
+		<td id="bminus" class="operatorBtn" >-</td>
+		<td class="operatorBtn" rowspan=2>=</td>
 	</tr>
 		<tr>
-		<td onclick="printOnScreen(0)" colspan=2>0</td>
+		<td id="b0" class="digitBtn" colspan=2>0</td>
 		<td>.</td>
-		<td onclick="passOperand('add')">+</td>
+		<td id="bplus" class="operatorBtn" >+</td>
 	</tr>
 </table>
 </div>
+<script src="closure_script.js"></script>
