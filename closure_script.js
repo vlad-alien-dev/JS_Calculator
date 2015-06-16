@@ -43,7 +43,7 @@ var addDigit = (function (numToAdd) {
 		getRes:function () {
 			
 			if(numToAdd=='reset'){
-				if(typeof remememberedMember != 'undefined'){
+				if(remememberedMember !== undefined&&remememberedMember !== "unset"){
 					return screenValue;
 				}
 				else{					
@@ -66,7 +66,7 @@ function changeScreenValue(digit){
 	return member;
 }
 function getOperator(operator){
-	if(typeof remememberedMember == 'undefined'){
+	if(remememberedMember === undefined&&remememberedMember === "unset"){
 		remememberedMember=member;
 		nextOperator=operator;
 	}
@@ -87,7 +87,7 @@ function getOperator(operator){
 		member=remememberedMember*member;	
 		break;
 	}
-	remememberedMember=undefined;
+	remememberedMember="unset";
 	}
 	resetScreen();
 	remememberedMember=member;
