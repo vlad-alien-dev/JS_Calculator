@@ -4,6 +4,7 @@ var screenValue;
 var remememberedMember;
 var digits=document.getElementsByClassName('digitBtn');
 var operators=document.getElementsByClassName('operatorBtn');
+var deletes=document.getElementsByClassName('delete');
 var currOperator;
 var nextOperator;
 
@@ -38,7 +39,12 @@ for (i = 0; i < operators.length; i++) {
 		operators[i].addEventListener("click", function(){addToLog(operators[id].innerText); }, false);	
 	}())
 }
-
+for (i = 0; i < deletes.length; i++) { 
+	(function(){
+		var id = i;
+		deletes[i].addEventListener("click", function(){deleteObject(this); }, false);
+	}())
+}
 var addDigit = (function (numToAdd) {
     screenValue = 0;
         return {
@@ -128,8 +134,15 @@ var showLog=function(objectId){
 			var opType=document.createElement("td");
 			var opTypeNode = document.createTextNode(testObject.attributes.operationType);			
 			opType.appendChild(opTypeNode);
+			var del = document.createElement("td");			
+			var delnode = document.createElement("div");		
+			delnode.setAttribute("class", "delete");
+			delnode.setAttribute("id", objectId);
+			delnode.setAttribute("onclick", "deleteObject(this)");
+			del.appendChild(delnode);
 			document.getElementById("logs").appendChild(row).appendChild(time);
 			document.getElementById("logs").lastChild.appendChild(opType);
+			document.getElementById("logs").lastChild.appendChild(del);
 		console.log(testObject.attributes.operationType);
 		var timeOptions={
 		hour: "2-digit", minute: "2-digit"
@@ -141,4 +154,22 @@ var showLog=function(objectId){
 		// error is a Parse.Error with an error code and message.
 	  }
 	});
+}
+
+var deleteObject=function(entry){
+var query = new Parse.Query(TestObject);
+query.get(entry.id, {
+  success: function(myObj) {
+    myObj.destroy({});
+	var el = document.getElementById(entry.id);
+	var par=el.parentNode.parentNode;
+	
+	par.parentNode.removeChild(par);
+  },
+  error: function(object, error) {
+    // The object was not retrieved successfully.
+    // error is a Parse.Error with an error code and description.
+  }
+});
+	
 }
