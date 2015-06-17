@@ -101,10 +101,10 @@ var resetScreen = function(){
 }
 Parse.initialize("Eb6W51QvPcyrUyuGHk6b3LjM1wZXnW3NOYhkLT4K", "TLXRT0s7foHmYJT7osc4moKjcFFrknpSElmvnSBL");
 var TestObject = Parse.Object.extend("TestObject");
-	var testObject = new TestObject();
+
 var addToLog = function(input){
 	//Parse.initialize("APPLICATION_ID", "JAVASCRIPT_KEY");
-
+	var testObject = new TestObject();
 
 	  testObject.save({operationType: input}, {
 	  success: function(object) {
@@ -121,8 +121,20 @@ var showLog=function(objectId){
 	var query = new Parse.Query(TestObject);
 	query.get(objectId, {
 	  success: function(testObject) {
-		alert(testObject.attributes.operationType);
-		alert(testObject.createdAt);
+			var row = document.createElement("tr");
+			var time = document.createElement("td");			
+			var textnode = document.createTextNode((testObject.createdAt).toLocaleTimeString());			
+			time.appendChild(textnode);
+			var opType=document.createElement("td");
+			var opTypeNode = document.createTextNode(testObject.attributes.operationType);			
+			opType.appendChild(opTypeNode);
+			document.getElementById("logs").appendChild(row).appendChild(time);
+			document.getElementById("logs").lastChild.appendChild(opType);
+		console.log(testObject.attributes.operationType);
+		var timeOptions={
+		hour: "2-digit", minute: "2-digit"
+		};
+		console.log((testObject.createdAt).toLocaleTimeString());
 	  },
 	  error: function(testObject, error) {
 		// The object was not retrieved successfully.
