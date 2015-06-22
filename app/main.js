@@ -1,4 +1,6 @@
-﻿var result;
+﻿var myApp=angular.module('myApp', []);
+
+var result;
 var member;
 var screenValue;
 var remememberedMember;
@@ -162,8 +164,7 @@ query.get(entry.id, {
   success: function(myObj) {
     myObj.destroy({});
 	var el = document.getElementById(entry.id);
-	var par=el.parentNode.parentNode;
-	
+	var par=el.parentNode.parentNode;	
 	par.parentNode.removeChild(par);
   },
   error: function(object, error) {
